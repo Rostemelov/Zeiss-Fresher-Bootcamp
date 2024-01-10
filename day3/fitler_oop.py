@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------    
-class StartPredicates:
+class StartPredicateContainer:
     def __init__(self, startlist):
         self.__startlist = startlist
     def check_string_starting_with(self, string):
@@ -8,7 +8,7 @@ class StartPredicates:
         else:
             return False
 #-------------------------------------------------------------------------------
-class EndPredicates:
+class EndPredicateContainer:
     def __init__(self, endlist):
         self.__endlist = endlist
     def check_string_ending_with(self, string):
@@ -20,8 +20,8 @@ class EndPredicates:
 class Filter:
     def __init__(self, startlist, endlist):
         self.__answer_list = []
-        self.__stprd = StartPredicates(startlist)
-        self.__stpprd = EndPredicates(endlist)
+        self.__stprd = StartPredicateContainer(startlist)
+        self.__stpprd = EndPredicateContainer(endlist)
     def filter(self, input_str, criteria_function):
         for string in input_str:
             if criteria_function == "start":
