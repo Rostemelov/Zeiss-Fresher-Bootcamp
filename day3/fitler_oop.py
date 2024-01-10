@@ -47,7 +47,7 @@ class Initiator:
         self.__printer = Printer()
         self.__filt = Filter(['a','A','d','V','p'], ['a','A','d','V','p'])
         
-    def dowork(self):
+    def doWork(self):
         result = self.__filt.filter(self.__array_of_strings, "start")
         self.__printer.setContent(result)
         self.__printer.printToTerminal()
@@ -57,4 +57,4 @@ class Initiator:
          
 #-------------------------------------------------------------------------------
 init1 = Initiator()     
-init1.dowork()
+init1.doWork()
