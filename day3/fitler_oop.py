@@ -1,42 +1,28 @@
+#-------------------------------------------------------------------------------
+
+
 #-------------------------------------------------------------------------------    
-class StartPredicateContainer:
-    def __init__(self, startlist):
-        self.__startlist = startlist
-    def check_string_starting_with(self, string):
-        if string[0] in self.__startlist:
-            return True
-        else:
-            return False
+class StartWithContainer:
+    def search(self, string):
+        return string[0]
 #-------------------------------------------------------------------------------
-class EndPredicateContainer:
-    def __init__(self, endlist):
-        self.__endlist = endlist
-    def check_string_ending_with(self, string):
-        if string[-1] in self.__endlist:
-            return True
-        else:
-            return False
+class EndWithContainer:
+    def search(self, string):
+        return string[-1]
 #-------------------------------------------------------------------------------
-class Filter:
-    def __init__(self, startlist, endlist):
-        self.__answer_list = []
-        self.__stprd = StartPredicateContainer(startlist)
-        self.__stpprd = EndPredicateContainer(endlist)
-    def filter(self, input_str, criteria_function):
+class FilterController:
+    def filter(self, input_str, toDo, liststr):
+        answer_list = []
         for string in input_str:
-            if criteria_function == "start":
-                if(self.__stprd.check_string_starting_with(string)):
-                    self.__answer_list.append(string)
-            elif criteria_function == "end":
-                if(self.__stpprd.check_string_ending_with(string)):
-                    self.__answer_list.append(string)
-        return self.__answer_list
+            if toDo.search(string) in liststr:
+                answer_list.append(string)
+        return answer_list
 #-------------------------------------------------------------------------------
 class Printer:
     def __init__(self):
         self.__content = []
-    def setContent(self, l):
-        self.__content = l
+    def setContent(self, inputContent):
+        self.__content = inputContent
     def printToTerminal(self):
         for string in self.__content:
             print(string)
@@ -45,13 +31,16 @@ class Initiator:
     def __init__(self):
         self.__array_of_strings = ['Abhishek','abhinav','Deepanshu','Vishal','Manisha','Dadlani']
         self.__printer = Printer()
-        self.__filt = Filter(['a','A','d','V','p'], ['a','A','d','V','p'])
+        self.__filt = FilterController()
+        self.__startsWithStrategy = StartWithContainer()
+        self.__endsWithStrategy = EndWithContainer()
         
     def doWork(self):
-        result = self.__filt.filter(self.__array_of_strings, "start")
+        liststr =  ['a','A','d','V','p']
+        result = self.__filt.filter(self.__array_of_strings, self.__startsWithStrategy, liststr)
         self.__printer.setContent(result)
         self.__printer.printToTerminal()
-        result = self.__filt.filter(self.__array_of_strings, "end")
+        result = self.__filt.filter(self.__array_of_strings, self.__endsWithStrategy, liststr)
         self.__printer.setContent(result)
         self.__printer.printToTerminal()
          
