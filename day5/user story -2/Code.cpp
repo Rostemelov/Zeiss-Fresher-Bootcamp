@@ -20,9 +20,7 @@ class StartupMonitor
         cout<<statusMap[code];
         if(code == "0xFF")
         {
-            machine.temp();
-            machine.duration();
-            machine.variation();
+            machine.run();
         }
     }
 };
@@ -78,7 +76,7 @@ class CNC
     StartupMonitor startupMonitor;
     TemperatureMonitor temperatureMonitor;
     VariationMonitor variationMonitor;
-    RuntimeMonitor runtimeMonitor
+    RuntimeMonitor runtimeMonitor;
     
     public:
     CNC()
@@ -99,17 +97,41 @@ class CNC
         doctor. startupCheckUp( this , code);
     }
     
-    temp()
+    void readTemperature()
     {
-        //code that calls the monitor function of temperatureMonitor and passes in the temperature reading
+        std::uniform_float_distribution<size_t> distribution(0, 50);
+        // Generate a random index
+        float temperature = distribution(gen);
+        temperatureMonitor.monitor(temperature);
     }
-    duration()
+    void readVariation()
     {
-        //code that calls the monitor function of runtimeMonitor to check the runtime
+        std::uniform_float_distribution<size_t> distribution(0, 0.1);
+        // Generate a random index
+        float variation = distribution(gen);
+        variationMonitor.monitor();
     }
-    variation()
+    
+    void run();
     {
-        //code that calls the monitor function of variationMonitor to monitor the variation of the parts
+        int tcounter = 0, rcounter = 0;
+        for (int i = 0; ; i++) 
+        {
+            if(tcounter == 30)
+            {
+                readTemperature();
+                tcounter = 0;
+            }
+            if(rcounter == 15)
+            {
+                runtimeMonitor.monitor();
+                rcounter = 0;
+            }
+            std::cout << "printer 2 Printing line " << i << "..." << std::endl;
+            std::this_thread::sleep_for(std::chrono::minutes(1));
+            rcounter++;
+            tcounter++;
+        }
     }
 };
 //------------------------------------------------------------------------------
@@ -120,3 +142,4 @@ int main()
     CNC Machine;
     return 0;
 }
+
