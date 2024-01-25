@@ -7,7 +7,7 @@ public class DynamicArray<T>{
 
     public DynamicArray(int initialCapacity){
         if(initialCapacity <= 0){
-            throw new ArgumentException("Initial capacity must be greater than 0");
+            throw new ArgumentOutOfRangeException("Initial capacity must be greater than 0");
         }
 
         array = new T[initialCapacity];
