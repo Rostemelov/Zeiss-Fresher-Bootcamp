@@ -25,20 +25,13 @@ public class DynamicArray<T>{
             return;
         }
 
-        while(index>=capacity)
+        if(index>=capacity)
         {
-             ResizeArray();
+             ResizeArray(index);
         }
 
         if(count == capacity){
-            // If the array is full, double its capacity
-            ResizeArray();
-        }
-
-
-        // Shift elements to make space for the new item
-        for(int i = count - 1; i >= index; i--){
-            array[i + 1] = array[i];
+            ResizeArray(0);
         }
 
         array[index] = item;
@@ -55,8 +48,8 @@ public class DynamicArray<T>{
         }
     }
 
-    private void ResizeArray(){
-        capacity *= 2;
+    private void ResizeArray(int index){
+        capacity += index + 10;
         T[] newArray = new T[capacity];
         
         // Copy elements to the new array
