@@ -37,35 +37,33 @@ namespace Bugfix
 
     public class PrintScanner: IPrinter, IScanner
     {
+        private readonly Printer printer;
+        private readonly Scanner scanner;
+        public PrintScanner()
+        {
+            this.printer = new Printer();
+            this.scanner = new Scanner();
+        }
         public void Scan(string path)
         {
-            System.Console.WriteLine($"Scanning .....{path}");
+            scanner.Scan(path);
         }
 
         public void Print(string path)
         {
-            System.Console.WriteLine($"Printing .....{path}");
+            printer.Print(path);    
         }
 
     }
     public static class TaskManager
     {
-        public static void ExecuctePrintTask(Printer printer, string documentPath)
+        public static void ExecuctePrintTask(IPrinter printer, string documentPath)
         {
             printer.Print(documentPath);
         }
-        public static void ExecucteScanTask(Scanner scanner, string documentPath)
+        public static void ExecucteScanTask(IScanner scanner, string documentPath)
         {
             scanner.Scan(documentPath);
-        }
-
-        public static void ExecuctePrintTask(PrintScanner printscanner, string documentPath)
-        {
-            printscanner.Print(documentPath);
-        }
-        public static void ExecucteScanTask(PrintScanner printscanner, string documentPath)
-        {
-            printscanner.Scan(documentPath);
         }
     }
 
