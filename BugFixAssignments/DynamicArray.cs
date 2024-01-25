@@ -20,14 +20,21 @@ public class DynamicArray<T>{
     }
 
     public void Add(int index, T item){
-        if(index < 0 || index > count){
+        if(index < 0){
             throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range");
+            return;
+        }
+
+        while(index>=capacity)
+        {
+             ResizeArray();
         }
 
         if(count == capacity){
             // If the array is full, double its capacity
             ResizeArray();
         }
+
 
         // Shift elements to make space for the new item
         for(int i = count - 1; i >= index; i--){
