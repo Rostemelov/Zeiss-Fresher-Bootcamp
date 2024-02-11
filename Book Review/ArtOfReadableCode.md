@@ -23,6 +23,15 @@ There are 3 main principles of good aesthetics in code:
 ### 3. Use Column Alignment When Helpful
 
 ### 4. Pick a Meaningful Order, and Use It Consistently
+
+### 5. Organize Declarations into Blocks
+
+### 6. Break Code into “Paragraphs”
+---
+
+---
+> ### KEY IDEA:
+> consistent style is more important than the "right" style.
 ---
 ## Conclusion
 In short, through the chapter we learnt: 
