@@ -1,7 +1,7 @@
-# Art of Readable Code: Chapter 4
+# The Art of Readable Code: Chapter 4
 ## Aesthetics
 ---
-
+`code` print('hello')
 ---
 ## Conclusion
 
