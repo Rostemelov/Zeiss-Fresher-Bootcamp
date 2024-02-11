@@ -2,8 +2,10 @@
 ## Aesthetics
 ---
 
+---
+## Conclusion
 
 ---
-### Review by
+### Authors
 - Sai Harshit B
 - Prajwal HM
