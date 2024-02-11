@@ -17,6 +17,36 @@ There are 3 main principles of good aesthetics in code:
 ## Common Practices
 
 ### 1. Rearrange Line Breaks to Be Consistent and Compact
+Consider the example of a Java code to evaluate how your program behaves under various
+network connection speeds. 
+
+There is a 'TCPSimulator' that takes in 4 parameters: 
+1. Kbps
+2. Latency
+3. Jitter
+4. Packet Loss
+
+Suppose 3 instances of TCPSimulator are required. Consider the below code:
+```
+public class PerformanceTester {
+ public static final TcpConnectionSimulator wifi = new TcpConnectionSimulator(
+ 500, /* Kbps */
+ 80, /* millisecs latency */
+ 200, /* jitter */
+ 1 /* packet loss % */);
+ public static final TcpConnectionSimulator t3_fiber =
+ new TcpConnectionSimulator(
+ 45000, /* Kbps */
+ 10, /* millisecs latency */
+ 0, /* jitter */
+ 0 /* packet loss % */);
+ public static final TcpConnectionSimulator cell = new TcpConnectionSimulator(
+ 100, /* Kbps */
+ 400, /* millisecs latency */
+ 250, /* jitter */
+ 5 /* packet loss % */);
+}
+```
 
 ### 2. Use Methods to Clean Up Irregularity
 
