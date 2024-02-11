@@ -73,6 +73,36 @@ This gives the code a tabular look and is vertically more compact. Also, the lin
 
 
 ### 2. Use Methods to Clean Up Irregularity
+Here, we improve the readability of the code using **Helper Functions**. These helper functions hide away the details of how things work in order to present a neat code, as well as overcome the issue of code repeated code.
+
+Example:
+
+Without Helper:
+```
+DatabaseConnection database_connection;
+string error;
+assert(ExpandFullName(database_connection, "Doug Adams", &error)
+ == "Mr. Douglas Adams");
+assert(error == "");
+assert(ExpandFullName(database_connection, " Jake Brown ", &error)
+ == "Mr. Jacob Brown III");
+```
+We can create a helper function as shown below:
+```
+CheckFullName("Doug Adams", "Mr. Douglas Adams", "");
+CheckFullName(" Jake Brown ", "Mr. Jake Brown III", "");
+
+void CheckFullName(string partial_name, string expected_full_name, string expected_error) 
+{
+ // database_connection is now a class member
+ string error;
+ string full_name = ExpandFullName(database_connection, partial_name, &error);
+ assert(error == expected_error);
+ assert(full_name == expected_full_name);
+}
+```
+Here, the assert and ExpanFullName functions have been hidden away within the CheckFullName function, and there is no need to repeat the function calls of these two functions. Instead to add more function calls, we only need to call one function, i.e. the CheckFullName function.
+
 
 ### 3. Use Column Alignment When Helpful
 Straight edges and columns make it easier to scan through the code. Here is an example:
