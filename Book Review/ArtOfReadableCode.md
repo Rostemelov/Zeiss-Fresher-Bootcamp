@@ -29,24 +29,45 @@ There is a 'TCPSimulator' that takes in 4 parameters:
 Suppose 3 instances of TCPSimulator are required. Consider the below code:
 ```
 public class PerformanceTester {
- public static final TcpConnectionSimulator wifi = new TcpConnectionSimulator(
- 500, /* Kbps */
- 80, /* millisecs latency */
- 200, /* jitter */
- 1 /* packet loss % */);
- public static final TcpConnectionSimulator t3_fiber =
- new TcpConnectionSimulator(
- 45000, /* Kbps */
- 10, /* millisecs latency */
- 0, /* jitter */
- 0 /* packet loss % */);
- public static final TcpConnectionSimulator cell = new TcpConnectionSimulator(
- 100, /* Kbps */
- 400, /* millisecs latency */
- 250, /* jitter */
- 5 /* packet loss % */);
+    public static final TcpConnectionSimulator wifi = new TcpConnectionSimulator(
+        500, /* Kbps */
+        80, /* millisecs latency */
+        200, /* jitter */
+        1 /* packet loss % */);
+
+    public static final TcpConnectionSimulator t3_fiber =
+        new TcpConnectionSimulator(
+            45000, /* Kbps */
+            10, /* millisecs latency */
+            0, /* jitter */
+            0 /* packet loss % */);
+
+    public static final TcpConnectionSimulator cell = new TcpConnectionSimulator(
+        100, /* Kbps */
+        400, /* millisecs latency */
+        250, /* jitter */
+        5 /* packet loss % */);
 }
 ```
+
+The problem we see with this code is that we see an inconsistency of the pattern which draws our attention to the **t3_fiber** instance of TCPSimulator. Also we have repeated code which makes the code look really long. The pattern gets disrupted at t3_fiber because of the character limit for the line which makes the rest of the statement of the code go to the next line.
+
+So after cleaning up the code, we have the below code:
+
+```
+public class PerformanceTester {
+    // TcpConnectionSimulator(throughput, latency, jitter, packet_loss)
+    //                           [Kbps]     [ms]    [ms]    [percent]
+    public static final TcpConnectionSimulator wifi =
+        new TcpConnectionSimulator(500,      80,    200,        1);
+    public static final TcpConnectionSimulator t3_fiber =
+        new TcpConnectionSimulator(45000,    10,    0,          0);
+    public static final TcpConnectionSimulator cell =
+        new TcpConnectionSimulator(100,      400,   250,        5);
+}
+```
+This gives the code a tabular look and is vertically more compact. Also, the line breaks were used to make the style pattern consistent. the declarations of the instances were all made in 2 lines instead to cover up the line wrapping which occured for t3_fiber.
+
 
 ### 2. Use Methods to Clean Up Irregularity
 
