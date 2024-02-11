@@ -3,9 +3,11 @@
 ---
 ### Introduction
 - The aesthetics of code focuses on how the code appears on the screen.
-- Programmers spend more time *looking at code* than writing code.
+- Programmers spend more time **looking at code** than **writing code**.
 - Therefore, it is necessary that the programmer reading the code doesn't get frustrated or confused because of how the code looks.
-- Good sourfce code should be "easy on the eyes", like a well-designed magazine.
+- Good source code should be "easy on the eyes", like a well-designed magazine.
+
+
 ---
 #### Principles
 
@@ -17,7 +19,14 @@ There are 3 main principles of good aesthetics in code:
 
 ---
 ### Conclusion
-
+In short, through the chapter we learnt: 
+- An aesthetically good code helps readers understand the code faster.
+- The following techniques are used to make the code look aesthetically pleasing:
+    1. If multiple blocks of code are doing similar things, try to give them the same silhouette.
+    2. Aligning parts of the code into “columns” can make code easy to skim through.
+    3. If code mentions A, B, and C in one place, don’t say B, C, and A in another. Pick a
+       meaningful order and stick with it.
+    4. Use empty lines to break apart large blocks into logical “paragraphs.”
 ---
 ### Authors
 - Sai Harshit B
