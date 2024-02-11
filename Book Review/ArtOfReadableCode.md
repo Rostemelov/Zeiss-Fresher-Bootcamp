@@ -58,10 +58,13 @@ So after cleaning up the code, we have the below code:
 public class PerformanceTester {
     // TcpConnectionSimulator(throughput, latency, jitter, packet_loss)
     //                           [Kbps]     [ms]    [ms]    [percent]
+
     public static final TcpConnectionSimulator wifi =
         new TcpConnectionSimulator(500,      80,    200,        1);
+
     public static final TcpConnectionSimulator t3_fiber =
         new TcpConnectionSimulator(45000,    10,    0,          0);
+        
     public static final TcpConnectionSimulator cell =
         new TcpConnectionSimulator(100,      400,   250,        5);
 }
