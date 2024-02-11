@@ -100,8 +100,12 @@ In this example we also see that there's a typo for request in the third line. U
 
 ### 5. Organize Declarations into Blocks
 The brain naturally thinks in terms of groups and hierarchies.
+
+
 ### 6. Break Code into “Paragraphs”
-In written text, we split the content into paragraphs to group similar
+In written text, we split the content into paragraphs to group similar ideas, and to provide a visual "stepping stone" to the reader to help him/her understand better.
+
+
 ---
 ## Personal Style versus Consistency
 There are some aesthetic choices that just boil down to personal style. 
