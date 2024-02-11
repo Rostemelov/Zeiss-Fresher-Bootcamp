@@ -35,5 +35,5 @@ In short, through the chapter we learnt:
     4. Use empty lines to break apart large blocks into logical “paragraphs.”
 ---
 ## Authors
-- Sai Harshit B
-- Prajwal HM
+- *Sai Harshit B*
+- *Prajwal HM*
