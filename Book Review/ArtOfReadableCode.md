@@ -93,12 +93,15 @@ after cleaning:
     email    = request.POST.get('email')
     url      = request.POST.get('url')
 ```
-In this example we also see that there's a typo for request in the third line. Using column alignment can help spot typos more easily.
+In this example we also see that there's a typo for request in the third line. Using column alignment can help spot typos more easily. Similarly we can use for repetitve method calling where we pass arguements. If we align them like how we did above, we can easily spot if there have been typos or missing values in the arguements.
+
+
 ### 4. Pick a Meaningful Order, and Use It Consistently
 
 ### 5. Organize Declarations into Blocks
-
+The brain naturally thinks in terms of groups and hierarchies.
 ### 6. Break Code into “Paragraphs”
+In written text, we split the content into paragraphs to group similar
 ---
 ## Personal Style versus Consistency
 There are some aesthetic choices that just boil down to personal style. 
