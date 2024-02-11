@@ -101,7 +101,7 @@ void CheckFullName(string partial_name, string expected_full_name, string expect
  assert(full_name == expected_full_name);
 }
 ```
-Here, the assert and ExpanFullName functions have been hidden away within the CheckFullName function, and there is no need to repeat the function calls of these two functions. Instead to add more function calls, we only need to call one function, i.e. the CheckFullName function.
+Here, the assert and ExpandFullName functions have been hidden away within the CheckFullName function, and there is no need to repeat the function calls of these two functions. Instead to add more function calls, we only need to call one function, i.e. the CheckFullName function.
 
 
 ### 3. Use Column Alignment When Helpful
