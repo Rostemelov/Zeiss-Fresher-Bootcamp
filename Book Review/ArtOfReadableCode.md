@@ -125,25 +125,94 @@ Here, we first took details, then the phone number, followed email and location,
 The brain naturally thinks in terms of groups and hierarchies.
 
 For example:
-```
 
+The below code shows a class with function declarations all put in one place together.
 ```
+class FrontendServer {
+ public:
+  FrontendServer();
+  void ViewProfile(HttpRequest* request);
+  void OpenDatabase(string location, string user);
+  void SaveProfile(HttpRequest* request);
+  string ExtractQueryParam(HttpRequest* request, string param);
+  void ReplyOK(HttpRequest* request, string html);
+  void FindFriends(HttpRequest* request);
+  void ReplyNotFound(HttpRequest* request, string error);
+  void CloseDatabase(string location);
+  ~FrontendServer();
+};
+```
+The problem here is that it overwhelms the reader. We can make it better by splitting them into groups of similar functions instead of a single giant block. 
+
 after cleaning:
 ```
+class FrontendServer {
+ public:
+    FrontendServer();
+    ~FrontendServer();
 
+    // Handlers
+    void ViewProfile(HttpRequest* request);
+    void SaveProfile(HttpRequest* request);
+    void FindFriends(HttpRequest* request);
+
+    // Request/Reply Utilities
+    string ExtractQueryParam(HttpRequest* request, string param);
+    void ReplyOK(HttpRequest* request, string html);
+    void ReplyNotFound(HttpRequest* request, string error);
+
+    // Database Helpers
+    void OpenDatabase(string location, string user);
+    void CloseDatabase(string location);
+};
 ```
+After reading the cleaned code, the reader can better understand the categories of functions in the class.
+
 
 ### 6. Break Code into “Paragraphs”
-In written text, we split the content into paragraphs to group similar ideas, and to provide a visual "stepping stone" to the reader to help him/her understand better.
+In written text, we split the content into paragraphs to group similar ideas, and to provide a visual "stepping stone" to the reader to help him/her understand better. 
+
+This can be really helpful when used within large functions to visualise the steps within the function to understand its working.
 
 For example:
 ```
-
+# Import the user's email contacts, and match them to users in our system.
+# Then display a list of those users that he/she isn't already friends with.
+def suggest_new_friends(user, email_password):
+    friends = user.friends()
+    friend_emails = set(f.email for f in friends)
+    contacts = import_contacts(user.email, email_password)
+    contact_emails = set(c.email for c in contacts)
+    non_friend_emails = contact_emails - friend_emails
+    suggested_friends = User.objects.select(email__in=non_friend_emails)
+    display['user'] = user
+    display['friends'] = friends
+    display['suggested_friends'] = suggested_friends
+    return render("suggested_friends.html", display)
 ```
 after cleaning:
 ```
+def suggest_new_friends(user, email_password):
 
+    # Get the user's friends' email addresses.
+    friends = user.friends()
+    friend_emails = set(f.email for f in friends)
+
+    # Import all email addresses from this user's email account.
+    contacts = import_contacts(user.email, email_password)
+    contact_emails = set(c.email for c in contacts)
+
+    # Find matching users that they aren't already friends with.
+    non_friend_emails = contact_emails - friend_emails
+    suggested_friends = User.objects.select(email__in=non_friend_emails)
+
+    # Display these lists on the page.
+    display['user'] = user
+    display['friends'] = friends
+    display['suggested_friends'] = suggested_friends
+    return render("suggested_friends.html", display)
 ```
+As we can see, breaking the code into paragraphs helps to 
 
 ---
 ## Personal Style versus Consistency
