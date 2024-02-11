@@ -1,22 +1,30 @@
-# The Art of Readable Code: Chapter 4
-## Aesthetics
+# The Art of Readable Code: 
+## Chapter 4: Aesthetics
 ---
-### Introduction
+## Introduction
 - The aesthetics of code focuses on how the code appears on the screen.
 - Programmers spend more time **looking at code** than **writing code**.
 - Therefore, it is necessary that the programmer reading the code doesn't get frustrated or confused because of how the code looks.
 - Good source code should be "easy on the eyes", like a well-designed magazine.
 
-#### Principles
+### Principles
 
 There are 3 main principles of good aesthetics in code:
 1. Consistent layout with patterns the reader can get used to.
 2. Make similar code look similar
 3. Group related lines of code into blocks
 ---
+## Common Practices
 
+### 1. Rearrange Line Breaks to Be Consistent and Compact
+
+### 2. Use Methods to Clean Up Irregularity
+
+### 3. Use Column Alignment When Helpful
+
+### 4. Pick a Meaningful Order, and Use It Consistently
 ---
-### Conclusion
+## Conclusion
 In short, through the chapter we learnt: 
 - An aesthetically good code helps readers understand the code faster.
 - The following techniques are used to make the code look aesthetically pleasing:
@@ -26,6 +34,6 @@ In short, through the chapter we learnt:
        meaningful order and stick with it.
     4. Use empty lines to break apart large blocks into logical “paragraphs.”
 ---
-### Authors
+## Authors
 - Sai Harshit B
 - Prajwal HM
