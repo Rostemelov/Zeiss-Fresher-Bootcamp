@@ -97,14 +97,53 @@ In this example we also see that there's a typo for request in the third line. U
 
 
 ### 4. Pick a Meaningful Order, and Use It Consistently
+There are cases where the order of the code doesn't affect the correctness of the code. Yet it is important to keep a meaningful order, and stick to it to avoid confusion and to make typos more visible.
+
+For example:
+```
+details = request.POST.get('details')
+location = request.POST.get('location')
+phone = request.POST.get('phone')
+email = request.POST.get('email')
+url = request.POST.get('url')
+```
+
+In such situations, it is a good practice to order them is some meaningful way, like accesing the fields in the same order as in the HTML form for the above code. 
+
+After cleaning, it may look like:
+```
+details  = request.POST.get('details')
+phone    = request.POST.get('phone')
+email    = request.POST.get('email')
+location = request.POST.get('location')
+url      = request.POST.get('url')
+```
+Here, we first took details, then the phone number, followed email and location, and finally the url.
+
 
 ### 5. Organize Declarations into Blocks
 The brain naturally thinks in terms of groups and hierarchies.
 
+For example:
+```
+
+```
+after cleaning:
+```
+
+```
 
 ### 6. Break Code into “Paragraphs”
 In written text, we split the content into paragraphs to group similar ideas, and to provide a visual "stepping stone" to the reader to help him/her understand better.
 
+For example:
+```
+
+```
+after cleaning:
+```
+
+```
 
 ---
 ## Personal Style versus Consistency
