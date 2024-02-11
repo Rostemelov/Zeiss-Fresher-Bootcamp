@@ -28,9 +28,9 @@ There are 3 main principles of good aesthetics in code:
 
 ### 6. Break Code into “Paragraphs”
 ---
+## Personal Style versus Consistency
 
----
-> ### KEY IDEA:
+> #### KEY IDEA:
 > consistent style is more important than the "right" style.
 ---
 ## Conclusion
