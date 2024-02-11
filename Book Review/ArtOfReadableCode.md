@@ -29,7 +29,22 @@ There are 3 main principles of good aesthetics in code:
 ### 6. Break Code into “Paragraphs”
 ---
 ## Personal Style versus Consistency
-
+There are some aesthetic choices that just boil down to personal style. 
+For example, placement of braces:
+```
+class Logger {
+ ...
+};
+```
+or 
+```
+class Logger 
+{
+ ...
+};
+```
+Either style may be used, and is dependent on the personal style of the developer.
+Choosing one over the other does not affect the readability of the code, but if both are used in a mixed manner, it leads to bad aesthetics due to inconsistent patterns
 > #### KEY IDEA:
 > consistent style is more important than the "right" style.
 ---
