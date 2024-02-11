@@ -64,7 +64,7 @@ public class PerformanceTester {
 
     public static final TcpConnectionSimulator t3_fiber =
         new TcpConnectionSimulator(45000,    10,    0,          0);
-        
+
     public static final TcpConnectionSimulator cell =
         new TcpConnectionSimulator(100,      400,   250,        5);
 }
@@ -75,7 +75,25 @@ This gives the code a tabular look and is vertically more compact. Also, the lin
 ### 2. Use Methods to Clean Up Irregularity
 
 ### 3. Use Column Alignment When Helpful
-
+Straight edges and columns make it easier to scan through the code. Here is an example:
+```
+# Extract POST parameters to local variables
+    details = request.POST.get('details')
+    location = request.POST.get('location')
+    phone = equest.POST.get('phone')
+    email = request.POST.get('email')
+    url = request.POST.get('url')
+```
+after cleaning:
+```
+# Extract POST parameters to local variables
+    details  = request.POST.get('details')
+    location = request.POST.get('location')
+    phone    = equest.POST.get('phone')
+    email    = request.POST.get('email')
+    url      = request.POST.get('url')
+```
+In this example we also see that there's a typo for request in the third line. Using column alignment can help spot typos more easily.
 ### 4. Pick a Meaningful Order, and Use It Consistently
 
 ### 5. Organize Declarations into Blocks
