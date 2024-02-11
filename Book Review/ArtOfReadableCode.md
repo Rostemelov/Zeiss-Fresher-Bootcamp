@@ -7,8 +7,6 @@
 - Therefore, it is necessary that the programmer reading the code doesn't get frustrated or confused because of how the code looks.
 - Good source code should be "easy on the eyes", like a well-designed magazine.
 
-
----
 #### Principles
 
 There are 3 main principles of good aesthetics in code:
